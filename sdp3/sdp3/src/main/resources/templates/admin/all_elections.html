@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+	
+</head>
+<body>
+
+<section>
+		<h1>All Election</h1>
+		
+   <div class="col-md-12 text-right">
+				<!-- <a th:href="@{/teacher/view/course/{id}/tab/quizes/createQuiz(id = ${})}" class="btn btn-primary">Create Quiz</a> -->
+		</div>
+		<br>
+				<div class="card mb-9" >
+					    	
+					    	<table class="table table-striped">
+							  <thead>
+							    <tr>
+							      <th scope="col">#</th>
+							      <th scope="col">electionid</th>
+							      <th scope="col">election name</th>
+							      <th scope="col">View Candidates</th>
+							      <th scope="col">View Votes</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    
+							    <tr th:each="q : ${election}">
+							      <th scope="row" th:text="${qStat.index+1}">1</th>
+							      <td th:text="${q.electionid}"></td>
+							      <td th:text="${q.electionname}"></td>
+							      <td><a th:href="@{/admin/allElections/viewcans/{id}(id=${q.electionid})}">View Candidates</a></td>
+							      <td><a th:href="@{/admin/allElections/viewvotes/{id}(id=${q.electionid})}">View Votes</a></td>
+							    </tr>
+							  </tbody>
+							</table>
+					  </div>
+				</div>
+			
+</section>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+	
+</head>
+<body>
+
+<section>
+		<h1>List Of Votes</h1>
+		<hr>
+		<br>
+   		<div class="card mb-9" >
+					    	
+					    	<table class="table table-striped">
+							  <thead>
+							    <tr>
+							      <th scope="col">#</th>
+							       <th scope="col">Election Id</th>
+							      <th scope="col">Election Name</th>
+							      <th scope="col">Candidate Name</th>
+							      <th scope="col">Date Voted</th>
+							       <th scope="col">Voted By</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr th:each="q : ${vlist}">
+							      <th scope="row" th:text="${qStat.index+1}">1</th>
+							      <td th:text="${q.electionid}"></td>
+							      <td th:text="${q.electionName}"></td>
+							      <td th:text="${q.candidatename}"></td>
+							      <td th:text="${q.datevoted}"></td>
+							      <td th:text="${q.votedBy}"></td>
+							    </tr> 
+							  </tbody>
+							</table>
+					  </div>
+</form>
+			
+</section>
+
+</body>
+</html>

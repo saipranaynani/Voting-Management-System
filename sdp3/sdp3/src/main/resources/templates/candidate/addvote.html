@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="candidate/base::layout(~{::section})">
+<head>
+	
+</head>
+<body>
+
+<section>
+		<h1>Elections</h1>
+		<hr>
+		<div class="card mb-9">
+		
+			<table class="table table-striped">
+			
+							  <thead>
+							    <tr>
+							      <th scope="col">#</th>
+							 
+							     <th>ELECTION ID</th>
+								<th>CANDIDATE NAME</th>
+								<th>CANDIDATE PARTY</th>
+								<th>VOTE CANDIDATE</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    
+							    <tr th:each="q : ${canlist}">
+							      <th scope="row" th:text="${qStat.index+1}">1</th>
+							  
+							      <td th:text="${q.electionid}"></td>
+							      <td th:text="${q.candidatename}"></td>
+							      <td th:text="${q.partyname}"></td>
+							       <form th:action="@{saveVote}" method="post" th:object=${vote}>
+							      <td>
+									            <label for="voted"> Vote </label>
+									            <input type="radio" name="voted" th:value="${q.id}" id="voted">
+									            <input type="hidden" name="electionid" th:value="${q.electionid}" >
+									            <input type="hidden" name="candidatename" th:value="${q.candidatename}" >
+									            <input type="hidden" name="partyname" th:value="${q.partyname}" >
+									            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
+									</td>
+							    </tr>
+							  </tbody>
+							</table>
+							<div class="col-md-12 text-right">
+							 <button type="submit" class="btn btn-success btn-lg mb-1">Add Vote</button>
+							</div>
+</form>
+		</div>	
+</section>
+
+</body>
+</html>

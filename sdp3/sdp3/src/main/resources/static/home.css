@@ -1,0 +1,17 @@
+body{
+	/*background:#e2e2e2!important;*/
+	 background-color:transparent;
+}
+
+	
+/*
+.bg-primary{
+	background: #20c997 !important;
+}
+*/
+
+@media (min-width: 1025px) {
+  .h-custom {
+    height: 100vh !important;
+  }
+}

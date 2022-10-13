@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+	
+</head>
+<body>
+
+<section>
+		<h1>List Of Candidates</h1>
+		<hr>
+		<div class="col-md-12 text-right">
+				<a th:href="@{/admin/allElections/viewcans/{id}/addCan(id = ${eid})}" class="btn btn-primary">Add Candidate</a>
+		</div>
+		<br>
+   		<div class="card mb-9" >
+					    	
+					    	<table class="table table-striped">
+							  <thead>
+							    <tr>
+							      <th scope="col">#</th>
+							       <th scope="col">Candidate Name</th>
+							      <th scope="col">Party Id</th>
+							      <th scope="col">Party Name</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    
+							    <tr th:each="q : ${canlist}">
+							      <th scope="row" th:text="${qStat.index+1}">1</th>
+							      <td th:text="${q.candidatename}"></td>
+							      <td th:text="${q.partyid}"></td>
+							      <td th:text="${q.partyname}"></td>
+							    </tr>
+							  </tbody>
+							</table>
+					  </div>
+</form>
+			
+</section>
+
+</body>
+</html>

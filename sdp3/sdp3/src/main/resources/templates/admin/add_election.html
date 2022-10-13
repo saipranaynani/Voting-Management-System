@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+	
+</head>
+<body>
+
+<section>
+		<h1>Adding Election</h1>
+		
+   <form action="addelection" method="post">
+    electionid:<input type="text" name="electionid" class="form-control" required />
+    electionname:<input type="text" name="electionname" class="form-control" required />
+    startdate:<input type="date" name="startdate" class="form-control" required />
+    enddate:<input type="date" name="enddate" class="form-control" required />
+     <br>
+     <br>
+    <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+   
+</form>
+			
+</section>
+
+</body>
+</html>

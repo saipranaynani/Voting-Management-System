@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="candidate/base::layout(~{::section})">
+<head>
+	
+</head>
+<body>
+
+<section>
+		<h1>Elections</h1>
+		<hr>
+		<div class="card mb-9">
+			<table class="table table-striped">
+							  <thead>
+							    <tr>
+							      <th scope="col">#</th>
+							      <th scope="col">electionid</th>
+							      <th scope="col">election name</th>
+							      <th scope="col">Add Vote</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    
+							    <tr th:each="q : ${election}">
+							      <th scope="row" th:text="${qStat.index+1}">1</th>
+							      <td th:text="${q.electionid}"></td>
+							      <td th:text="${q.electionname}"></td>
+							      <td><a th:href="@{/candidate/addvote/{id}(id=${q.electionid})}">Add Vote</a></td>
+							    </tr>
+							  </tbody>
+							</table>
+		</div>	
+</section>
+
+</body>
+</html>
